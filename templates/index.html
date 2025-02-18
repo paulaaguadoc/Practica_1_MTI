@@ -29,10 +29,20 @@
             <form action="{{ url_for('calcular_media_local') }}" method="POST">
                 <button type="submit" class="btn btn-info mt-3">Calcular Media Local</button>
             </form>
+            {% if media_local is not none %}
+                <p>Media de los números almacenados: {{ media_local }}</p>
+                <p>Media local calculada {{ media_local_count }} veces.</p>
+            {% endif %}
 
             <form action="{{ url_for('calcular_media_beebotte') }}" method="POST">
                 <button type="submit" class="btn btn-info mt-3">Calcular Media Beebotte</button>
             </form>
+            {% if media_bebotte %}
+                <p>Media en Beebotte: {{ media_bebotte }}</p>
+                <p>Media de Beebotte calculada {{ media_beebotte_count }} veces.</p>
+            {% else %}
+                <p>No hay datos disponibles en Beebotte.</p>
+            {% endif %}
 
         {% else %}
             <p>Por favor, inicia sesión para continuar.</p>
